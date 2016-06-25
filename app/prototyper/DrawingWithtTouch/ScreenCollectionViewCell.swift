@@ -9,7 +9,6 @@
 import UIKit
 
 class ScreenCollectionViewCell: UICollectionViewCell {
-    
     @IBOutlet weak var screenImage: UIImageView!
     @IBOutlet weak var screenNameLabel: UILabel!
 }

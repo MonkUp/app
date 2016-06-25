@@ -1,37 +1,29 @@
-//
-//  ScreenSizeSelectionViewController.swift
-//  DrawingWithTouch
-//
-//  Created by Sahas D on 6/25/16.
-//
-//
-
 import UIKit
 
 class ScreenSizeSelectionViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
     @IBAction func screenSizeSelected(sender: AnyObject) {
+        print ("username is: \(USERNAME)");
+        print ("appname is: \(APPNAME)");
+        switch sender.tag {
+        case 0:
+            print("selected iphone");  //ratio 16 : 9
+            WIDTH = 325; HEIGHT = 667;
+        case 1:
+            print("selected ipad");
+            //WIDTH = 540; HEIGHT = 500  //ratio 16 : 9
+        case 2:
+            print("selected web");
+            //WIDTH = 650; HEIGHT = 0123; //ratio 16 : 9
+        default:
+            print("we got an error");
+        }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -12,12 +12,13 @@
 		291CADDB1D1F07E600AB82B7 /* ScreenSizeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291CADDA1D1F07E600AB82B7 /* ScreenSizeSelectionViewController.swift */; };
 		291CADDD1D1F0AEE00AB82B7 /* UserScreensCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291CADDC1D1F0AEE00AB82B7 /* UserScreensCollectionViewController.swift */; };
 		291CADDF1D1F0B3800AB82B7 /* ScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291CADDE1D1F0B3800AB82B7 /* ScreenCollectionViewCell.swift */; };
+		291CADE11D1F307900AB82B7 /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291CADE01D1F307900AB82B7 /* DrawViewController.swift */; };
+		291CADE41D1F3D0C00AB82B7 /* DrawView_Smoothing.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CADE31D1F3D0C00AB82B7 /* DrawView_Smoothing.m */; };
 		32A0BC521A28710200E4563F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A0BC511A28710200E4563F /* main.m */; };
 		32A0BC551A28710200E4563F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A0BC541A28710200E4563F /* AppDelegate.m */; };
 		32A0BC5B1A28710200E4563F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A0BC591A28710200E4563F /* Main.storyboard */; };
 		32A0BC5D1A28710200E4563F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32A0BC5C1A28710200E4563F /* Images.xcassets */; };
 		32A0BC601A28710300E4563F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A0BC5E1A28710200E4563F /* LaunchScreen.xib */; };
-		32A0BC7F1A28799C00E4563F /* drawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A0BC7E1A28799C00E4563F /* drawView.m */; };
 		32A0BC8D1A287B3200E4563F /* fill.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A0BC891A287B3200E4563F /* fill.png */; };
 		32A0BC8E1A287B3200E4563F /* fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A0BC8A1A287B3200E4563F /* fill@2x.png */; };
 		32A0BC8F1A287B3200E4563F /* shape.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A0BC8B1A287B3200E4563F /* shape.png */; };
@@ -33,7 +34,10 @@
 		291CADD81D1F008500AB82B7 /* AppNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNameViewController.swift; sourceTree = "<group>"; };
 		291CADDA1D1F07E600AB82B7 /* ScreenSizeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenSizeSelectionViewController.swift; sourceTree = "<group>"; };
 		291CADDC1D1F0AEE00AB82B7 /* UserScreensCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserScreensCollectionViewController.swift; sourceTree = "<group>"; };
-		291CADDE1D1F0B3800AB82B7 /* ScreenCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenCollectionViewCell.swift; sourceTree = "<group>"; };
+		291CADDE1D1F0B3800AB82B7 /* ScreenCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScreenCollectionViewCell.swift; path = DrawingWithtTouch/ScreenCollectionViewCell.swift; sourceTree = "<group>"; };
+		291CADE01D1F307900AB82B7 /* DrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
+		291CADE21D1F3D0C00AB82B7 /* DrawView_Smoothing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView_Smoothing.h; sourceTree = "<group>"; };
+		291CADE31D1F3D0C00AB82B7 /* DrawView_Smoothing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView_Smoothing.m; sourceTree = "<group>"; };
 		32A0BC4D1A28710200E4563F /* `````````````````````.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "`````````````````````.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A0BC501A28710200E4563F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32A0BC511A28710200E4563F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -42,8 +46,6 @@
 		32A0BC5A1A28710200E4563F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		32A0BC5C1A28710200E4563F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		32A0BC5F1A28710300E4563F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		32A0BC7D1A28799C00E4563F /* drawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawView.h; sourceTree = "<group>"; };
-		32A0BC7E1A28799C00E4563F /* drawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = drawView.m; sourceTree = "<group>"; };
 		32A0BC891A287B3200E4563F /* fill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fill.png; sourceTree = "<group>"; };
 		32A0BC8A1A287B3200E4563F /* fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fill@2x.png"; sourceTree = "<group>"; };
 		32A0BC8B1A287B3200E4563F /* shape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shape.png; sourceTree = "<group>"; };
@@ -67,15 +69,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		291CADD31D1E5F0A00AB82B7 /* drawViews */ = {
-			isa = PBXGroup;
-			children = (
-				32A0BC7E1A28799C00E4563F /* drawView.m */,
-				32A0BC7D1A28799C00E4563F /* drawView.h */,
-			);
-			name = drawViews;
-			sourceTree = "<group>";
-		};
 		291CADD71D1E5F5D00AB82B7 /* appDelegates */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +78,15 @@
 			name = appDelegates;
 			sourceTree = "<group>";
 		};
+		291CADE51D1F3F3D00AB82B7 /* drawingTools */ = {
+			isa = PBXGroup;
+			children = (
+				291CADE31D1F3D0C00AB82B7 /* DrawView_Smoothing.m */,
+				291CADE21D1F3D0C00AB82B7 /* DrawView_Smoothing.h */,
+			);
+			name = drawingTools;
+			sourceTree = "<group>";
+		};
 		328DA06419DA99F50044AFAA = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +94,7 @@
 				32EFD3551BFB80CD0047ACFB /* libc++.tbd */,
 				32C6393A1A9377BC00ACD1B8 /* WILLCore.framework */,
 				32A0BC4E1A28710200E4563F /* prototyper */,
+				291CADDE1D1F0B3800AB82B7 /* ScreenCollectionViewCell.swift */,
 				328DA07019DA9AC10044AFAA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,16 +110,16 @@
 		32A0BC4E1A28710200E4563F /* prototyper */ = {
 			isa = PBXGroup;
 			children = (
+				291CADE51D1F3F3D00AB82B7 /* drawingTools */,
 				32A0BC591A28710200E4563F /* Main.storyboard */,
-				291CADDE1D1F0B3800AB82B7 /* ScreenCollectionViewCell.swift */,
-				291CADDC1D1F0AEE00AB82B7 /* UserScreensCollectionViewController.swift */,
-				291CADDA1D1F07E600AB82B7 /* ScreenSizeSelectionViewController.swift */,
-				291CADD81D1F008500AB82B7 /* AppNameViewController.swift */,
 				291CADD51D1E5F4700AB82B7 /* enterUsernameViewController.swift */,
+				291CADD81D1F008500AB82B7 /* AppNameViewController.swift */,
+				291CADDA1D1F07E600AB82B7 /* ScreenSizeSelectionViewController.swift */,
+				291CADDC1D1F0AEE00AB82B7 /* UserScreensCollectionViewController.swift */,
+				291CADE01D1F307900AB82B7 /* DrawViewController.swift */,
 				32A0BC5C1A28710200E4563F /* Images.xcassets */,
 				32A0BC4F1A28710200E4563F /* Supporting Files */,
 				291CADD71D1E5F5D00AB82B7 /* appDelegates */,
-				291CADD31D1E5F0A00AB82B7 /* drawViews */,
 			);
 			name = prototyper;
 			path = DrawingWithtTouch;
@@ -126,13 +129,13 @@
 			isa = PBXGroup;
 			children = (
 				32A0BC5E1A28710200E4563F /* LaunchScreen.xib */,
-				291CADD41D1E5F4600AB82B7 /* DrawingWithtTouch-Bridging-Header.h */,
 				32A0BC891A287B3200E4563F /* fill.png */,
 				32A0BC8A1A287B3200E4563F /* fill@2x.png */,
 				32A0BC8B1A287B3200E4563F /* shape.png */,
 				32A0BC8C1A287B3200E4563F /* shape@2x.png */,
 				32A0BC501A28710200E4563F /* Info.plist */,
 				32A0BC511A28710200E4563F /* main.m */,
+				291CADD41D1E5F4600AB82B7 /* DrawingWithtTouch-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -215,7 +218,8 @@
 				291CADDF1D1F0B3800AB82B7 /* ScreenCollectionViewCell.swift in Sources */,
 				291CADDD1D1F0AEE00AB82B7 /* UserScreensCollectionViewController.swift in Sources */,
 				32A0BC551A28710200E4563F /* AppDelegate.m in Sources */,
-				32A0BC7F1A28799C00E4563F /* drawView.m in Sources */,
+				291CADE41D1F3D0C00AB82B7 /* DrawView_Smoothing.m in Sources */,
+				291CADE11D1F307900AB82B7 /* DrawViewController.swift in Sources */,
 				32A0BC521A28710200E4563F /* main.m in Sources */,
 				291CADD61D1E5F4700AB82B7 /* enterUsernameViewController.swift in Sources */,
 				291CADDB1D1F07E600AB82B7 /* ScreenSizeSelectionViewController.swift in Sources */,

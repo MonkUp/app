@@ -15,20 +15,31 @@ class UserScreensCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
         self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         self.title = "Your App Screens"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(addScreen))
 
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    func addScreen() {
+        print("GOT TO ADD SCREEN")
+        if #available(iOS 8.0, *) {
+            let ac = UIAlertController(title: "Enter Screen Name", message: nil, preferredStyle: .Alert)
+            ac.addTextFieldWithConfigurationHandler(nil)
+            let submitAction = UIAlertAction(title: "Submit", style: .Default) { [unowned self, ac] (action: UIAlertAction!) in
+                let name : String? = ac.textFields![0].text
+                print(name!)
+            }
+            ac.addAction(submitAction)
+            presentViewController(ac, animated: true, completion: nil)
+        }
+        
     }
 
 

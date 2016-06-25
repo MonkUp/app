@@ -1,7 +1,15 @@
-#import "drawView.h"
+//
+//  DrawView.m
+//  DrawingWithTouch
+//
+//  Created by Plamen Petkov on 9/30/14.
+//
+//
+
+#import "DrawView_Smoothing.h"
 #import <WILLCore/WILLCore.h>
 
-@implementation drawView
+@implementation DrawView_Smoothing
 {
     WCMRenderingContext * willContext;
     WCMLayer* viewLayer;
