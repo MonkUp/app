@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 private let reuseIdentifier = "Cell"
 var APPDATA : [String:AnyObject] = [:]
@@ -100,7 +101,7 @@ class UserScreensCollectionViewController: UICollectionViewController {
     @IBAction func uploadToServer(sender: AnyObject) {
         APPDATA["username"] = USERNAME;
         APPDATA["appName"] = APPNAME;
-        APPDATA["initalViewName"] = CANVASES[0].title
+        APPDATA["initialViewName"] = CANVASES[0].title
         var viewsArray: Array<[String: AnyObject]> = Array<[String: AnyObject]>();
         for canva in 0...CANVASES.count-1 {
             TEMPDATA["viewname"] = CANVASES[canva].title
@@ -108,15 +109,38 @@ class UserScreensCollectionViewController: UICollectionViewController {
             TEMPDATA["buttons"] = BUTTON_CONTENTS[CANVASES[canva].title]
             viewsArray.append(TEMPDATA);
         }
+        var postString : NSString = " "
         APPDATA["views"] = viewsArray;
         print(APPDATA)
         do{
             let jsonData = try NSJSONSerialization.dataWithJSONObject(APPDATA, options: NSJSONWritingOptions.PrettyPrinted);
-            print(jsonData)
+            //print(jsonData)
+            postString = NSString(data: jsonData, encoding: NSUTF8StringEncoding)!
+            print(postString)
+            
+
         }catch _ {
             
         }
-        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://monkup-avikj.rhcloud.com/api/appData")!)
+        request.HTTPMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print("error=\(error)")
+                return
+            }
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(response)")
+            }
+            
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseString = \(responseString)")
+        }
+        task.resume()
     }
     // MARK: UICollectionViewDelegate
 

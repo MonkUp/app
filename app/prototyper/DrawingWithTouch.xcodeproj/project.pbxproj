@@ -14,6 +14,7 @@
 		291CADDF1D1F0B3800AB82B7 /* ScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291CADDE1D1F0B3800AB82B7 /* ScreenCollectionViewCell.swift */; };
 		291CADE11D1F307900AB82B7 /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291CADE01D1F307900AB82B7 /* DrawViewController.swift */; };
 		291CADE41D1F3D0C00AB82B7 /* DrawView_Smoothing.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CADE31D1F3D0C00AB82B7 /* DrawView_Smoothing.m */; };
+		2933B82C1D2019FC00B8A832 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2933B82B1D2019FC00B8A832 /* Alamofire.framework */; };
 		298295A31D200F7C00E6780F /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298295A21D200F7C00E6780F /* SwiftyJSON.swift */; };
 		32A0BC521A28710200E4563F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A0BC511A28710200E4563F /* main.m */; };
 		32A0BC551A28710200E4563F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A0BC541A28710200E4563F /* AppDelegate.m */; };
@@ -39,6 +40,7 @@
 		291CADE01D1F307900AB82B7 /* DrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
 		291CADE21D1F3D0C00AB82B7 /* DrawView_Smoothing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView_Smoothing.h; sourceTree = "<group>"; };
 		291CADE31D1F3D0C00AB82B7 /* DrawView_Smoothing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView_Smoothing.m; sourceTree = "<group>"; };
+		2933B82B1D2019FC00B8A832 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		298295A21D200F7C00E6780F /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		32A0BC4D1A28710200E4563F /* `````````````````````.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "`````````````````````.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A0BC501A28710200E4563F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				32EFD3581BFB80D20047ACFB /* libz.tbd in Frameworks */,
 				32EFD3561BFB80CD0047ACFB /* libc++.tbd in Frameworks */,
 				32C6393B1A9377BC00ACD1B8 /* WILLCore.framework in Frameworks */,
+				2933B82C1D2019FC00B8A832 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +97,7 @@
 			children = (
 				32EFD3571BFB80D20047ACFB /* libz.tbd */,
 				32EFD3551BFB80CD0047ACFB /* libc++.tbd */,
+				2933B82B1D2019FC00B8A832 /* Alamofire.framework */,
 				32C6393A1A9377BC00ACD1B8 /* WILLCore.framework */,
 				32A0BC4E1A28710200E4563F /* prototyper */,
 				291CADDE1D1F0B3800AB82B7 /* ScreenCollectionViewCell.swift */,
@@ -294,6 +298,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					./../..,
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -350,6 +355,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					./../..,
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

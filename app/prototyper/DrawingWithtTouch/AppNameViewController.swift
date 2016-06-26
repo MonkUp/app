@@ -9,6 +9,8 @@ class AppNameViewController: UIViewController {
         super.viewDidLoad()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AppNameViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        self.view.addBackground()
+
     }
 
     override func didReceiveMemoryWarning() {
