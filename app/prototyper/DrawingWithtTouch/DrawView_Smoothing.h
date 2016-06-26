@@ -6,6 +6,7 @@
 - (void) eraser;
 - (void) pen;
 @property NSString *title;
+@property UIImage *screenImage;
 
 
 @end

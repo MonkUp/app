@@ -13,12 +13,13 @@ private let reuseIdentifier = "Cell"
 class UserScreensCollectionViewController: UICollectionViewController {
     
     var upcomingScreenTitle : String = "unanmed"
+    var currentItem : Int = 0;
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
-        self.title = "Your App Screens"
+        self.title = "\(APPNAME) screens"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(addScreen))
     }
@@ -59,6 +60,12 @@ class UserScreensCollectionViewController: UICollectionViewController {
             let VC : UIViewController = segue.destinationViewController as UIViewController
             VC.title = upcomingScreenTitle
         }
+        else if segue.identifier == "GoToExistingScreen" {
+            let nav : UINavigationController = segue.destinationViewController as! UINavigationController
+            let VC : DrawViewController = nav.topViewController as! DrawViewController
+            VC.isNewScreen = false
+            VC.view.addSubview(CANVASES[currentItem])
+        }
     }
 
 
@@ -77,12 +84,16 @@ class UserScreensCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ScreenCell", forIndexPath: indexPath) as! ScreenCollectionViewCell
         
         cell.screenNameLabel.text = CANVASES[indexPath.item].title
+        cell.screenImage.image = CANVASES[indexPath.item].screenImage
         //cell.screenNameLabel.textColor = UIColor.whiteColor()
     
         return cell
     }
     
-    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        currentItem = indexPath.item;
+        self.performSegueWithIdentifier("GoToExistingScreen", sender: nil)
+    }
 
     // MARK: UICollectionViewDelegate
 

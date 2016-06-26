@@ -558,7 +558,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="LBX-9l-W4k"/>
                     <connections>
-                        <segue destination="nsb-U2-GKj" kind="show" identifier="GoToCreatedScreen" id="hYt-gR-pxq"/>
+                        <segue destination="nsb-U2-GKj" kind="show" identifier="GoToExistingScreen" id="hYt-gR-pxq"/>
                         <segue destination="ylM-44-Fe6" kind="show" identifier="GoToNewScreen" id="cNu-EU-Jxz"/>
                     </connections>
                 </collectionViewController>
@@ -579,7 +579,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="M38-Wo-hfH"/>
+                    <navigationItem key="navigationItem" id="M38-Wo-hfH">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Zg8-kP-4Cs">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="ylM-44-Fe6" id="Ju4-Gx-eHm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Edt-KX-mrA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
