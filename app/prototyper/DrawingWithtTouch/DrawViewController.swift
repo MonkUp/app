@@ -54,8 +54,11 @@ class DrawViewController: UIViewController {
         self.drawView.drawViewHierarchyInRect(CGRect(x: 0, y: 0, width: self.drawView.bounds.width, height: self.drawView.bounds.height), afterScreenUpdates: false)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         self.drawView.screenImage = newImage
-        // print("\(myButtons.count) IS THE VALUE OF MYBUTTONS BEFORE LOOPS")
+        print(newImage)
+    
+        
         var myArray = [[String: String]]()
+        
         for i in 0...(myButtons.count-1) {
             // print("\(i) IS THE VALUE OF I IN THE FOR LOOPS")
             myArray.append([
@@ -67,6 +70,38 @@ class DrawViewController: UIViewController {
             ])
         }
         BUTTON_CONTENTS.updateValue(myArray, forKey: self.title!)
+        
+        
+        let imageData: NSData = UIImagePNGRepresentation(self.drawView.screenImage)!
+        print(imageData)
+        let strBase64:String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+        print(strBase64);
+        let MYURL : String = "http://monkup-avikj.rhcloud.com/api/image/\(USERNAME)/\(APPNAME)/\(self.drawView.title)"
+        print(MYURL)
+        //let params = "{\"data\":\"\(strBase64)\"}"
+        //print(params)
+        
+        
+        print("GOT HERE");
+        let request = NSMutableURLRequest(URL: (NSURL(string: MYURL))!)
+        request.HTTPMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.HTTPBody = strBase64.dataUsingEncoding(NSUTF8StringEncoding)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print("error=\(error)")
+                return
+            }
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(response)")
+            }
+            
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseString = \(responseString)")
+        }
+        task.resume()
         
     }
     @IBAction func eraser(sender: AnyObject) {
@@ -140,8 +175,6 @@ class DrawViewController: UIViewController {
         self.myButtons.append(buttonData)
         self.button.titleLabel?.text //href
         button.enabled = false;
-        
-        
         
     }
     
