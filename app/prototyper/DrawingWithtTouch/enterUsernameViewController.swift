@@ -4,6 +4,7 @@ var USERNAME : String = "Sahas";
 var APPNAME : String = "HELLO WORLD";
 var HEIGHT : Int = 0;
 var WIDTH : Int = 0;
+var CANVASES = [DrawView_Smoothing]()
 
 class enterUsernameViewController: UIViewController {
 

@@ -9,10 +9,11 @@
 import UIKit
 
 private let reuseIdentifier = "Cell"
-let screenNames = ["test", "asdf", "asdf", "Asdf", "Asdf"];
 
 class UserScreensCollectionViewController: UICollectionViewController {
-
+    
+    var upcomingScreenTitle : String = "unanmed"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -20,11 +21,18 @@ class UserScreensCollectionViewController: UICollectionViewController {
         self.title = "Your App Screens"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(addScreen))
-
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        print("REFRESHED DATA")
+        super.viewDidAppear(animated)
+        self.collectionView?.reloadData()
     }
     
     func addScreen() {
@@ -33,8 +41,10 @@ class UserScreensCollectionViewController: UICollectionViewController {
             let ac = UIAlertController(title: "Enter Screen Name", message: nil, preferredStyle: .Alert)
             ac.addTextFieldWithConfigurationHandler(nil)
             let submitAction = UIAlertAction(title: "Submit", style: .Default) { [unowned self, ac] (action: UIAlertAction!) in
-                let name : String? = ac.textFields![0].text
-                print(name!)
+                self.upcomingScreenTitle = ac.textFields![0].text!
+                self.performSegueWithIdentifier("GoToNewScreen", sender: nil)
+
+                 
             }
             ac.addAction(submitAction)
             presentViewController(ac, animated: true, completion: nil)
@@ -45,8 +55,10 @@ class UserScreensCollectionViewController: UICollectionViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "GoToNewScreen" {
+            let VC : UIViewController = segue.destinationViewController as UIViewController
+            VC.title = upcomingScreenTitle
+        }
     }
 
 
@@ -57,18 +69,20 @@ class UserScreensCollectionViewController: UICollectionViewController {
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return screenNames.count
+        print("\(CANVASES.count)")
+        return CANVASES.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ScreenCell", forIndexPath: indexPath) as! ScreenCollectionViewCell
         
-        cell.screenNameLabel.text = screenNames[indexPath.item]
+        cell.screenNameLabel.text = CANVASES[indexPath.item].title
         //cell.screenNameLabel.textColor = UIColor.whiteColor()
     
         return cell
     }
+    
+    
 
     // MARK: UICollectionViewDelegate
 

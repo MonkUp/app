@@ -1,11 +1,3 @@
-//
-//  DrawView.m
-//  DrawingWithTouch
-//
-//  Created by Plamen Petkov on 9/30/14.
-//
-//
-
 #import "DrawView_Smoothing.h"
 #import <WILLCore/WILLCore.h>
 
@@ -19,7 +11,7 @@
     WCMSpeedPathBuilder * pathBuilder;
     
     WCMMultiChannelSmoothener * pathSmoothener;
-    
+    NSString * screenTitle; 
     
 }
 
