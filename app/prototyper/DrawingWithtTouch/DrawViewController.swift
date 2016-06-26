@@ -8,6 +8,14 @@
 
 import UIKit
 
+extension UIButton {
+
+}
+
+
+
+
+
 struct userScreenButton {
     let href: String
     let width: Int
@@ -20,6 +28,8 @@ class DrawViewController: UIViewController {
     
     var drawView = DrawView_Smoothing(frame: CGRect(x: 10, y: 10, width: 10, height: 10), Int32(WIDTH), andHeight: Int32(HEIGHT))
     var isNewScreen : Bool = true;
+    var button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +83,35 @@ class DrawViewController: UIViewController {
         }
     }
     func createCustomButtom (sender: String) {
-        print("Created custom \(sender)");
+        button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
+        button.layer.borderWidth = 1;
+        button.backgroundColor = UIColor.clearColor();
+        button.setTitle(sender, forState: .Normal)
+        
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(DrawViewController.handlePan(_:)))
+        button.addGestureRecognizer(pan)
+        
+        let lp = UILongPressGestureRecognizer(target: self, action: #selector(DrawViewController.handleLp(_:)))
+        button.addGestureRecognizer(lp)
+
+
+        
+        self.view.addSubview(button)
+        
     }
     
+    func handlePan(recognizer:UIPanGestureRecognizer) {
+        let translation = recognizer.translationInView(self.view)
+        if let view = recognizer.view {
+            view.center = CGPoint(x:view.center.x + translation.x, y:view.center.y + translation.y)
+        }
+        recognizer.setTranslation(CGPointZero, inView: self.view)
+    }
+    
+    func handleLp(recognizer:UILongPressGestureRecognizer) {
+        print("asdfasdf");
+    }
+    
+    
+
 }
