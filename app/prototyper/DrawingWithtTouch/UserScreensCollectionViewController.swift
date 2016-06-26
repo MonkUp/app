@@ -9,6 +9,8 @@
 import UIKit
 
 private let reuseIdentifier = "Cell"
+var APPDATA : [String:Any] = [:]
+var TEMPDATA : [String:Any] = [:]
 
 class UserScreensCollectionViewController: UICollectionViewController {
     
@@ -95,6 +97,22 @@ class UserScreensCollectionViewController: UICollectionViewController {
         self.performSegueWithIdentifier("GoToExistingScreen", sender: nil)
     }
 
+    @IBAction func uploadToServer(sender: AnyObject) {
+        APPDATA["username"] = USERNAME;
+        APPDATA["appName"] = APPNAME;
+        APPDATA["initalViewName"] = CANVASES[0].title
+        var viewsArray: [[String: Any]] = [[String: Any]]();
+        for canva in 0...CANVASES.count-1 {
+            TEMPDATA["viewname"] = CANVASES[canva].title
+            TEMPDATA["image"] = "http://monkup-avikj.rhcloud.com/api/img/\(USERNAME)/\(APPNAME)/\(CANVASES[canva].title)"
+            TEMPDATA["buttons"] = BUTTON_CONTENTS[CANVASES[canva].title]
+            viewsArray.append(TEMPDATA);
+        }
+        APPDATA["views"] = viewsArray;
+        print(APPDATA)
+        let jsonData = try NSJSONSerialization.dataWithJSONObject(APPDATA, options: NSJSONWritingOptions.PrettyPrinted)
+        print(jsonData)
+    }
     // MARK: UICollectionViewDelegate
 
     /*
@@ -117,11 +135,11 @@ class UserScreensCollectionViewController: UICollectionViewController {
         return false
     }
 
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
+    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: Any?) -> Bool {
         return false
     }
 
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
+    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: Any?) {
     
     }
     */

@@ -8,14 +8,6 @@
 
 import UIKit
 
-extension UIButton {
-
-}
-
-
-
-
-
 struct userScreenButton {
     let href: String
     let width: Int
@@ -24,16 +16,17 @@ struct userScreenButton {
     let left: Int
 }
 
+var BUTTON_CONTENTS : [String: [[String: String]]] = [:]
+
 class DrawViewController: UIViewController {
     
     var drawView = DrawView_Smoothing(frame: CGRect(x: 10, y: 10, width: 10, height: 10), Int32(WIDTH), andHeight: Int32(HEIGHT))
     var isNewScreen : Bool = true;
     var button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
-
+    var myButtons : [userScreenButton] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         self.navigationController!.navigationBar.translucent = false;  //Ensure canvas is really in center
         
         //Adding whiteboard canvas
@@ -42,7 +35,7 @@ class DrawViewController: UIViewController {
         //Set center of canvas
         drawView.center = CGPointMake(self.view.frame.size.width/2, (self.view.frame.size.height/2));
         
-        print(isNewScreen)
+        //print(isNewScreen)
         if (isNewScreen == true) {
             drawView.title = self.title
             self.view!.addSubview(drawView)
@@ -61,6 +54,19 @@ class DrawViewController: UIViewController {
         self.drawView.drawViewHierarchyInRect(CGRect(x: 0, y: 0, width: self.drawView.bounds.width, height: self.drawView.bounds.height), afterScreenUpdates: false)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         self.drawView.screenImage = newImage
+        // print("\(myButtons.count) IS THE VALUE OF MYBUTTONS BEFORE LOOPS")
+        var myArray = [[String: String]]()
+        for i in 0...(myButtons.count-1) {
+            // print("\(i) IS THE VALUE OF I IN THE FOR LOOPS")
+            myArray.append([
+                "href" : myButtons[i].href,
+                "width" : String(myButtons[i].width),
+                "height" : String(myButtons[i].height),
+                "top" : String(myButtons[i].top),
+                "left": String(myButtons[i].left)
+            ])
+        }
+        BUTTON_CONTENTS.updateValue(myArray, forKey: self.title!)
         
     }
     @IBAction func eraser(sender: AnyObject) {
@@ -130,8 +136,8 @@ class DrawViewController: UIViewController {
         
         let buttonData = userScreenButton(href: (self.button.titleLabel?.text!)!, width: Int(widthPercent), height: Int(heightPercent), top: Int(topPercent), left: Int(leftPercent))
         
-        print(buttonData);
-        
+        //print(buttonData);
+        self.myButtons.append(buttonData)
         self.button.titleLabel?.text //href
         button.enabled = false;
         

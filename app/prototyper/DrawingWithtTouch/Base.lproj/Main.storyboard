@@ -559,7 +559,13 @@
                             <outlet property="delegate" destination="KZC-lH-HEF" id="7XP-ZP-SpP"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="LBX-9l-W4k"/>
+                    <navigationItem key="navigationItem" id="LBX-9l-W4k">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="B8H-rA-WPU">
+                            <connections>
+                                <action selector="uploadToServer:" destination="KZC-lH-HEF" id="kFl-a0-gkw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="nsb-U2-GKj" kind="show" identifier="GoToExistingScreen" id="hYt-gR-pxq"/>
                         <segue destination="ylM-44-Fe6" kind="show" identifier="GoToNewScreen" id="cNu-EU-Jxz"/>
