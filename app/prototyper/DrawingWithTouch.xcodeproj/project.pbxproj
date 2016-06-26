@@ -14,6 +14,7 @@
 		291CADDF1D1F0B3800AB82B7 /* ScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291CADDE1D1F0B3800AB82B7 /* ScreenCollectionViewCell.swift */; };
 		291CADE11D1F307900AB82B7 /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291CADE01D1F307900AB82B7 /* DrawViewController.swift */; };
 		291CADE41D1F3D0C00AB82B7 /* DrawView_Smoothing.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CADE31D1F3D0C00AB82B7 /* DrawView_Smoothing.m */; };
+		298295A31D200F7C00E6780F /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298295A21D200F7C00E6780F /* SwiftyJSON.swift */; };
 		32A0BC521A28710200E4563F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A0BC511A28710200E4563F /* main.m */; };
 		32A0BC551A28710200E4563F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A0BC541A28710200E4563F /* AppDelegate.m */; };
 		32A0BC5B1A28710200E4563F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A0BC591A28710200E4563F /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 		291CADE01D1F307900AB82B7 /* DrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
 		291CADE21D1F3D0C00AB82B7 /* DrawView_Smoothing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView_Smoothing.h; sourceTree = "<group>"; };
 		291CADE31D1F3D0C00AB82B7 /* DrawView_Smoothing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView_Smoothing.m; sourceTree = "<group>"; };
+		298295A21D200F7C00E6780F /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		32A0BC4D1A28710200E4563F /* `````````````````````.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "`````````````````````.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A0BC501A28710200E4563F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32A0BC511A28710200E4563F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				291CADE51D1F3F3D00AB82B7 /* drawingTools */,
 				32A0BC591A28710200E4563F /* Main.storyboard */,
+				298295A21D200F7C00E6780F /* SwiftyJSON.swift */,
 				291CADD51D1E5F4700AB82B7 /* enterUsernameViewController.swift */,
 				291CADD81D1F008500AB82B7 /* AppNameViewController.swift */,
 				291CADDA1D1F07E600AB82B7 /* ScreenSizeSelectionViewController.swift */,
@@ -218,6 +221,7 @@
 				291CADDF1D1F0B3800AB82B7 /* ScreenCollectionViewCell.swift in Sources */,
 				291CADDD1D1F0AEE00AB82B7 /* UserScreensCollectionViewController.swift in Sources */,
 				32A0BC551A28710200E4563F /* AppDelegate.m in Sources */,
+				298295A31D200F7C00E6780F /* SwiftyJSON.swift in Sources */,
 				291CADE41D1F3D0C00AB82B7 /* DrawView_Smoothing.m in Sources */,
 				291CADE11D1F307900AB82B7 /* DrawViewController.swift in Sources */,
 				32A0BC521A28710200E4563F /* main.m in Sources */,

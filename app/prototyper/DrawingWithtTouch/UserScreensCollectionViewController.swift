@@ -9,8 +9,8 @@
 import UIKit
 
 private let reuseIdentifier = "Cell"
-var APPDATA : [String:Any] = [:]
-var TEMPDATA : [String:Any] = [:]
+var APPDATA : [String:AnyObject] = [:]
+var TEMPDATA : [String:AnyObject] = [:]
 
 class UserScreensCollectionViewController: UICollectionViewController {
     
@@ -101,7 +101,7 @@ class UserScreensCollectionViewController: UICollectionViewController {
         APPDATA["username"] = USERNAME;
         APPDATA["appName"] = APPNAME;
         APPDATA["initalViewName"] = CANVASES[0].title
-        var viewsArray: [[String: Any]] = [[String: Any]]();
+        var viewsArray: Array<[String: AnyObject]> = Array<[String: AnyObject]>();
         for canva in 0...CANVASES.count-1 {
             TEMPDATA["viewname"] = CANVASES[canva].title
             TEMPDATA["image"] = "http://monkup-avikj.rhcloud.com/api/img/\(USERNAME)/\(APPNAME)/\(CANVASES[canva].title)"
@@ -110,8 +110,13 @@ class UserScreensCollectionViewController: UICollectionViewController {
         }
         APPDATA["views"] = viewsArray;
         print(APPDATA)
-        let jsonData = try NSJSONSerialization.dataWithJSONObject(APPDATA, options: NSJSONWritingOptions.PrettyPrinted)
-        print(jsonData)
+        do{
+            let jsonData = try NSJSONSerialization.dataWithJSONObject(APPDATA, options: NSJSONWritingOptions.PrettyPrinted);
+            print(jsonData)
+        }catch _ {
+            
+        }
+        
     }
     // MARK: UICollectionViewDelegate
 
