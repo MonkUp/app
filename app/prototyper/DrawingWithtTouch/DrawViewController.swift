@@ -35,6 +35,8 @@ class DrawViewController: UIViewController {
             self.title = self.drawView.title;
             
         }
+        
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(addScreen))
     }
     @IBAction func saveButtonPressed(sender: AnyObject) {
         print("saved image")
@@ -44,4 +46,16 @@ class DrawViewController: UIViewController {
         self.drawView.screenImage = newImage
         
     }
+    @IBAction func eraser(sender: AnyObject) {
+        self.drawView.eraser()
+    }
+    @IBAction func pen(sender: AnyObject) {
+        self.drawView.pen()
+    }
+    @IBAction func addCustomButton(sender: AnyObject) {
+        let newView = userButtonView(frame: CGRectMake(300, 300, 300, 300))
+        self.view.addSubview(newView)
+        
+    }
+    
 }

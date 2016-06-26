@@ -3,6 +3,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Enter Username View Controller-->
@@ -577,19 +580,113 @@
                     <view key="view" contentMode="scaleToFill" id="E6G-wb-TJg" customClass="drawView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGh-fd-geU">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="ZG1-mc-P2u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <state key="normal" title="Eraser">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ZG1-mc-P2u"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="ZG1-mc-P2u"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="eraser:" destination="ylM-44-Fe6" eventType="touchUpInside" id="leR-oF-wrO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kaa-Tr-48C">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="Cpz-B6-mSR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <state key="normal" title="Pen">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Cpz-B6-mSR"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="Cpz-B6-mSR"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="pen:" destination="ylM-44-Fe6" eventType="touchUpInside" id="vGH-nU-JS5"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kaa-Tr-48C" firstAttribute="top" secondItem="PEm-L7-WhQ" secondAttribute="bottom" constant="31" id="78L-t4-eSM"/>
+                            <constraint firstItem="kaa-Tr-48C" firstAttribute="top" secondItem="zGh-fd-geU" secondAttribute="top" id="Evc-MQ-XZM"/>
+                            <constraint firstItem="zGh-fd-geU" firstAttribute="baseline" secondItem="kaa-Tr-48C" secondAttribute="firstBaseline" id="PxQ-bf-5FG"/>
+                            <constraint firstItem="kaa-Tr-48C" firstAttribute="leading" secondItem="E6G-wb-TJg" secondAttribute="leading" constant="319" id="Vk4-ic-DI9"/>
+                            <constraint firstItem="clB-aC-Zje" firstAttribute="top" secondItem="kaa-Tr-48C" secondAttribute="bottom" constant="667" id="jQQ-r3-iXO"/>
+                            <constraint firstItem="kaa-Tr-48C" firstAttribute="baseline" secondItem="zGh-fd-geU" secondAttribute="firstBaseline" id="nLs-Mu-F5M"/>
+                            <constraint firstItem="zGh-fd-geU" firstAttribute="leading" secondItem="kaa-Tr-48C" secondAttribute="trailing" constant="8" symbolic="YES" id="qeS-gu-eb5"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="zGh-fd-geU"/>
+                                <exclude reference="kaa-Tr-48C"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="78L-t4-eSM"/>
+                                <exclude reference="Evc-MQ-XZM"/>
+                                <exclude reference="Vk4-ic-DI9"/>
+                                <exclude reference="nLs-Mu-F5M"/>
+                                <exclude reference="PxQ-bf-5FG"/>
+                                <exclude reference="qeS-gu-eb5"/>
+                                <exclude reference="jQQ-r3-iXO"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="zGh-fd-geU"/>
+                                <include reference="kaa-Tr-48C"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="78L-t4-eSM"/>
+                                <include reference="Evc-MQ-XZM"/>
+                                <include reference="Vk4-ic-DI9"/>
+                                <include reference="nLs-Mu-F5M"/>
+                                <include reference="PxQ-bf-5FG"/>
+                                <include reference="qeS-gu-eb5"/>
+                                <include reference="jQQ-r3-iXO"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="M38-Wo-hfH">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="Zg8-kP-4Cs">
-                            <connections>
-                                <action selector="saveButtonPressed:" destination="ylM-44-Fe6" id="Ju4-Gx-eHm"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="ysv-9K-Pj3">
+                                <connections>
+                                    <action selector="addCustomButton:" destination="ylM-44-Fe6" id="2t7-T4-y6x"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Save" id="Zg8-kP-4Cs">
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="ylM-44-Fe6" id="Ju4-Gx-eHm"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Edt-KX-mrA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6600.75" y="295.5"/>
+            <point key="canvasLocation" x="6680.25" y="267"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WJf-FS-R7k">
