@@ -93,10 +93,11 @@ class DrawViewController: UIViewController {
         
         let lp = UILongPressGestureRecognizer(target: self, action: #selector(DrawViewController.handleLp(_:)))
         button.addGestureRecognizer(lp)
-
-
         
+        button.addTarget(self, action: #selector(buttonAction), forControlEvents: .TouchUpInside)
+
         self.view.addSubview(button)
+        
         
     }
     
@@ -104,14 +105,38 @@ class DrawViewController: UIViewController {
         let translation = recognizer.translationInView(self.view)
         if let view = recognizer.view {
             view.center = CGPoint(x:view.center.x + translation.x, y:view.center.y + translation.y)
+            print(view.center);
         }
         recognizer.setTranslation(CGPointZero, inView: self.view)
     }
     
     func handleLp(recognizer:UILongPressGestureRecognizer) {
-        print("asdfasdf");
+        print("hard pressed")
+        self.button.frame.size.height *= 1.2;
+        self.button.frame.size.width *= 1.2
     }
     
+    func buttonAction(sender: UIButton!) {
+        let heightPercent = 100*self.button.frame.height/self.drawView.frame.height;
+        let widthPercent = 100*self.button.frame.width/self.drawView.frame.width;
+        
+        let drawViewLeftPix = drawView.center.x-drawView.frame.width/2;
+        let drawViewTopPix = drawView.center.y-drawView.frame.height/2;
+        let centerxPercent = (self.button.center.x-drawViewLeftPix)*100/self.drawView.frame.width;
+        let centeryPercent = (self.button.center.y-drawViewTopPix)*100/self.drawView.frame.height;
+        
+        let leftPercent = centerxPercent - widthPercent/2;
+        let topPercent = centeryPercent - heightPercent/2;
+        
+        let buttonData = userScreenButton(href: (self.button.titleLabel?.text!)!, width: Int(widthPercent), height: Int(heightPercent), top: Int(topPercent), left: Int(leftPercent))
+        
+        print(buttonData);
+        
+        self.button.titleLabel?.text //href
+        button.enabled = false;
+        
+        
+        
+    }
     
-
 }

@@ -7,6 +7,7 @@
 - (void) pen;
 @property NSString *title;
 @property UIImage *screenImage;
+@property NSObject *buttons;
 
 
 @end
