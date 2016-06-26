@@ -8,6 +8,13 @@
 
 import UIKit
 
+struct userScreenButton {
+    let href: String
+    let width: Int
+    let height: Int
+    let top: Int
+    let left: Int
+}
 
 class DrawViewController: UIViewController {
     
@@ -52,10 +59,21 @@ class DrawViewController: UIViewController {
     @IBAction func pen(sender: AnyObject) {
         self.drawView.pen()
     }
+    
     @IBAction func addCustomButton(sender: AnyObject) {
-        let newView = userButtonView(frame: CGRectMake(300, 300, 300, 300))
-        self.view.addSubview(newView)
-        
+        print("GOT TO ADD SCREEN")
+        if #available(iOS 8.0, *) {
+            let ac = UIAlertController(title: "Enter Screen Name", message: nil, preferredStyle: .Alert)
+            ac.addTextFieldWithConfigurationHandler(nil)
+            let submitAction = UIAlertAction(title: "Submit", style: .Default) { [unowned self, ac] (action: UIAlertAction!) in
+                self.createCustomButtom(ac.textFields![0].text!)
+            }
+            ac.addAction(submitAction)
+            presentViewController(ac, animated: true, completion: nil)
+        }
+    }
+    func createCustomButtom (sender: String) {
+        print("Created custom \(sender)");
     }
     
 }

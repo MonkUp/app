@@ -644,13 +644,13 @@
                                 <exclude reference="kaa-Tr-48C"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="jQQ-r3-iXO"/>
                                 <exclude reference="78L-t4-eSM"/>
                                 <exclude reference="Evc-MQ-XZM"/>
                                 <exclude reference="Vk4-ic-DI9"/>
                                 <exclude reference="nLs-Mu-F5M"/>
                                 <exclude reference="PxQ-bf-5FG"/>
                                 <exclude reference="qeS-gu-eb5"/>
-                                <exclude reference="jQQ-r3-iXO"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -659,13 +659,13 @@
                                 <include reference="kaa-Tr-48C"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="jQQ-r3-iXO"/>
                                 <include reference="78L-t4-eSM"/>
                                 <include reference="Evc-MQ-XZM"/>
                                 <include reference="Vk4-ic-DI9"/>
                                 <include reference="nLs-Mu-F5M"/>
                                 <include reference="PxQ-bf-5FG"/>
                                 <include reference="qeS-gu-eb5"/>
-                                <include reference="jQQ-r3-iXO"/>
                             </mask>
                         </variation>
                     </view>

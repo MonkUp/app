@@ -21,7 +21,7 @@ class ScreenSizeSelectionViewController: UIViewController {
             WIDTH = 600; HEIGHT = 450  //ratio 16 : 9
         case 2:
             print("selected web");
-            WIDTH = 800; HEIGHT = 600; //ratio 16 : 9
+            WIDTH = 600; HEIGHT = 450; //ratio 16 : 9
         default:
             print("we got an error");
         }
