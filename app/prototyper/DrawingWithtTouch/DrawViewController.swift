@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 struct userScreenButton {
     let href: String
@@ -58,7 +59,7 @@ class DrawViewController: UIViewController {
     
         
         var myArray = [[String: String]]()
-        
+        if (myButtons.count > 0) {
         for i in 0...(myButtons.count-1) {
             // print("\(i) IS THE VALUE OF I IN THE FOR LOOPS")
             myArray.append([
@@ -69,9 +70,8 @@ class DrawViewController: UIViewController {
                 "left": String(myButtons[i].left)
             ])
         }
+        }
         BUTTON_CONTENTS.updateValue(myArray, forKey: self.title!)
-        
-        
         let imageData: NSData = UIImagePNGRepresentation(self.drawView.screenImage)!
         print(imageData)
         let strBase64:String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
@@ -85,7 +85,7 @@ class DrawViewController: UIViewController {
         print("GOT HERE");
         let request = NSMutableURLRequest(URL: (NSURL(string: MYURL))!)
         request.HTTPMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        //request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.HTTPBody = strBase64.dataUsingEncoding(NSUTF8StringEncoding)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             guard error == nil && data != nil else {                                                          // check for fundamental networking error
@@ -175,7 +175,6 @@ class DrawViewController: UIViewController {
         self.myButtons.append(buttonData)
         self.button.titleLabel?.text //href
         button.enabled = false;
-        
     }
     
 }

@@ -105,7 +105,6 @@ class UserScreensCollectionViewController: UICollectionViewController {
         var viewsArray: Array<[String: AnyObject]> = Array<[String: AnyObject]>();
         for canva in 0...CANVASES.count-1 {
             TEMPDATA["viewname"] = CANVASES[canva].title
-            TEMPDATA["image"] = "http://monkup-avikj.rhcloud.com/api/img/\(USERNAME)/\(APPNAME)/\(CANVASES[canva].title)"
             TEMPDATA["buttons"] = BUTTON_CONTENTS[CANVASES[canva].title]
             viewsArray.append(TEMPDATA);
         }
